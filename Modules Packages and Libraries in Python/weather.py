@@ -1,7 +1,8 @@
+import os
 import requests
 
-API_KEY = "695b2861cca34a65b0aa65d6279c5116"
-lat = 30.0444  
+API_KEY = os.getenv("WEATHER_API_KEY")  
+lat = 30.0444
 lon = 31.2357
 URL = f"https://api.weatherbit.io/v2.0/current?lat={lat}&lon={lon}&key={API_KEY}&include=minutely"
 

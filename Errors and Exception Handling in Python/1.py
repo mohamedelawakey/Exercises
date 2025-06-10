@@ -1,40 +1,40 @@
-# Custom Exceptions
-
 """ 
 
-class OutOfStockError(Exception):
+Exercise 1: Handling ZeroDivisionError
 
-    # Custom exception for handling out-of-stock items.
-    
-    def __init__(self,item_name):
-        self.item_name = item_name
-    
-    def __str__(self):
-        return f"Sorry, the item '{self.item_name}' is out of stock."
-    
-product_inventory = {
-    "apple": 10,
-    "banana": 5,
-    "orange": 0,  
-    "grapes": 3
-}
+Instructions:
 
-def purchase_item(item, quantity):
-    try:
-        if product_inventory[item] == 0:
-            raise OutOfStockError(item)
-        else:
-            print(f"Purchase successful: {quantity} {item}(s)")
-            product_inventory[item] -= quantity
-    except KeyError:
-        print(f"Sorry, '{item}' is not available in our inventory.")
-            
-try:
-    purchase_item("apple", 3) 
-    purchase_item("orange", 1)  
-    purchase_item("watermelon", 1) 
-except OutOfStockError as e:
-    print(e)
-    
+Write a program that takes two numbers as input from the user and divides the first number by the second number.
+Handle the ZeroDivisionError exception to inform the user if they attempt to divide by zero.
+
 """
 
+# way 1 :
+""" 
+
+def devision(num1, num2):
+    if num2 == 0:
+        raise ZeroDivisionError("you can't devision by zero")
+    else:
+        print(num1 / num2)
+
+div = devision(20,10)
+div2 = devision(20,0)
+
+"""
+
+# way 2 :
+
+def devision(num1, num2):
+    try:
+        result = num1 / num2
+        print(f'result = {result}')
+    except ZeroDivisionError :
+        print("sorry, you can't devide by 0")
+
+try:
+    num1 = int(input('enter number 1 : '))
+    num2 = int(input('enter number 2 : '))
+    devision(num1, num2)
+except ValueError:
+    print('Error: Please enter valid integers only.')

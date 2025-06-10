@@ -3,7 +3,9 @@
 """ 
 
 class OutOfStockError(Exception):
-    """Custom exception for handling out-of-stock items."""
+
+    # Custom exception for handling out-of-stock items.
+    
     def __init__(self,item_name):
         self.item_name = item_name
     

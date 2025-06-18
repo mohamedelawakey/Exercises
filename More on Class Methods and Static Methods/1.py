@@ -11,6 +11,7 @@ class Book:
     total_books = 0
     def __init__(self):
         Book.total_books += 1
+        
     @classmethod
     def display_total_books(cls):
         return f"Total books created: {cls.total_books}"
